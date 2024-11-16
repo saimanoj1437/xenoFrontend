@@ -18,7 +18,7 @@ const Dashboard = () => {
     // Fetch data from the backend API
     useEffect(() => {
         axios
-            .get("http://localhost:5000/api/audience")
+            .get("https://xenobackend-production.up.railway.app/api/audience")
             .then((response) => {
                 setAudienceData(response.data);
                 setFilteredData(response.data);
