@@ -28,7 +28,7 @@ const SignUP = () => {
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         try {
-            const respnse = await axios.post('http://localhost:3000/', { email, password });
+            const respnse = await axios.post('https://xenobackend-production.up.railway.app/api/auth/signup', { email, password });
             setMessage('Signup successful!');
             navigate('/login');
         } catch (error) {
