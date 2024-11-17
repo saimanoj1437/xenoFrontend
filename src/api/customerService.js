@@ -1,4 +1,3 @@
-// frontend/src/api/customerService.js
 import axios from 'axios';
 
 const createCustomer = async (customerData) => {
