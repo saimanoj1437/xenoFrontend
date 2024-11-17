@@ -1,4 +1,3 @@
-// src/components/CampaignForm.js or src/pages/CampaignForm.js
 import React, { useState } from 'react';
 import axios from 'axios';
 
