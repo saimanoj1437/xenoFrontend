@@ -1,11 +1,10 @@
-// src/components/Auth.js or src/pages/Auth.js
 import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom'; // Import for routing
-import SignUP from './SignUP';  // SignUp Form
-import LoginForm from './LoginForm'; // Login Form
+import { Routes, Route } from 'react-router-dom'; 
+import SignUP from './SignUP';  
+import LoginForm from './LoginForm'; 
 
 const Auth = () => {
-    const [isLogin, setIsLogin] = useState(false);  // Toggle between login/signup
+    const [isLogin, setIsLogin] = useState(false);  
 
     return (
         <div>
