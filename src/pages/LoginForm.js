@@ -18,7 +18,10 @@ const LoginForm = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('https://xenobackend-production.up.railway.app/api/auth/login', { email, password });
+            const response = await axios.post(
+                'https://xenobackend-production.up.railway.app/api/auth/login',
+                { email, password }
+            );
             localStorage.setItem('token', response.data.token);
             navigate('/dashboard');
         } catch (err) {
@@ -27,44 +30,46 @@ const LoginForm = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-blue-500 to-indigo-800 flex items-center justify-center">
-            <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-6">
-                <h2 className="text-2xl font-semibold text-center text-gray-800 mb-4">Login</h2>
+        <div className="min-h-screen bg-gradient-to-br from-teal-400 via-blue-500 to-purple-600 flex items-center justify-center px-4">
+            <div className="w-full max-w-sm bg-white rounded-lg shadow-xl p-6">
+                <h2 className="text-3xl font-semibold text-center text-gray-800 mb-6">Login</h2>
                 <form onSubmit={handleLogin} className="space-y-4">
                     <div>
-                        <label className="block text-gray-700 font-medium">Email</label>
+                        <label className="block text-sm font-medium text-gray-700">Email</label>
                         <input
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-indigo-300"
+                            className="w-full mt-1 px-4 py-2 bg-gray-50 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400"
                             placeholder="Enter your email"
                         />
                     </div>
                     <div>
-                        <label className="block text-gray-700 font-medium">Password</label>
+                        <label className="block text-sm font-medium text-gray-700">Password</label>
                         <input
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-indigo-300"
+                            className="w-full mt-1 px-4 py-2 bg-gray-50 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400"
                             placeholder="Enter your password"
                         />
                     </div>
                     <button
                         type="submit"
-                        className="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition-colors"
+                        className="w-full py-2 bg-purple-500 text-white text-sm font-medium rounded-md hover:bg-purple-600 focus:ring-2 focus:ring-purple-400 transition-transform transform hover:scale-105"
                     >
                         Login
                     </button>
                 </form>
-                {message && <p className="mt-4 text-center text-sm text-red-500">{message}</p>}
-                <p className="mt-4 text-center text-sm text-gray-600">
+                {message && (
+                    <p className="mt-4 text-sm text-center text-red-500">{message}</p>
+                )}
+                <p className="mt-6 text-sm text-center text-gray-600">
                     Don’t have an account?{' '}
                     <span
-                        className="text-indigo-600 font-medium hover:underline cursor-pointer"
+                        className="text-purple-500 font-medium hover:underline cursor-pointer"
                         onClick={() => navigate('/signup')}
                     >
                         Sign up
