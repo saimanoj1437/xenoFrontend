@@ -12,7 +12,7 @@ const SignUP = () => {
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (token) {
-            navigate('/dashboard'); // Redirect if already logged in
+            navigate('/dashboard');
         }
     }, [navigate]);
 
@@ -28,7 +28,7 @@ const SignUP = () => {
     const handleFormSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('https://xenobackend-production.up.railway.app/api/auth/signup', { email, password });
+            const respnse = await axios.post('http://localhost:3000/', { email, password });
             setMessage('Signup successful!');
             navigate('/login');
         } catch (error) {
@@ -40,11 +40,13 @@ const SignUP = () => {
         <div className="min-h-screen flex items-center justify-center p-6 bg-gradient-to-r from-teal-400 to-blue-500">
             <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
                 <h2 className="text-3xl font-bold text-center text-gray-800 mb-6">Sign Up</h2>
-                <GoogleLogin
-                    onSuccess={handleGoogleSuccess}
-                    onError={handleGoogleFailure}
-                    className="w-full mb-6"
-                />
+                <div className="mb-6">
+                    <GoogleLogin
+                        onSuccess={handleGoogleSuccess}
+                        onError={handleGoogleFailure}
+                        className="w-full block rounded-lg overflow-hidden border border-gray-300 bg-white shadow-md hover:shadow-lg transition-all"
+                    />
+                </div>
                 <div className="text-center text-gray-500 mb-6">or sign up with email</div>
                 <form onSubmit={handleFormSubmit} className="space-y-5">
                     <div>
