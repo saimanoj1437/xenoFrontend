@@ -8,14 +8,13 @@ const Dashboard = () => {
     const [showFilter, setShowFilter] = useState(false);
     const [showEmailModal, setShowEmailModal] = useState(false);
 
-    // Filter states
+  
     const [totalSpendingFilter, setTotalSpendingFilter] = useState({ value: "", condition: "greater" });
     const [visitsFilter, setVisitsFilter] = useState({ value: "", condition: "greater" });
     const [recentOrdersFilter, setRecentOrdersFilter] = useState(false);
 
     const navigate = useNavigate();
 
-    // Fetch data from the backend API
     useEffect(() => {
         axios
             .get("https://xenobackend-production.up.railway.app/api/audience")
@@ -28,7 +27,7 @@ const Dashboard = () => {
             });
     }, []);
 
-    // Apply filters
+   
     const applyFilters = () => {
         let data = [...audienceData];
 
@@ -57,7 +56,7 @@ const Dashboard = () => {
         setShowEmailModal(true);
     };
 
-    // Send Emails Functionality
+    
     const sendEmails = () => {
         const formspreeEndpoint = "https://formspree.io/f/xbljynkv";
 
@@ -77,7 +76,7 @@ const Dashboard = () => {
         setShowEmailModal(false);
     };
 
-    // Logout Functionality
+  
     const handleLogout = () => {
         localStorage.removeItem("token");
         navigate("/login");
