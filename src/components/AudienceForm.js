@@ -1,4 +1,3 @@
-// src/components/AudienceForm.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -7,7 +6,7 @@ const AudienceForm = () => {
     const [conditions, setConditions] = useState([]);
     const [audienceSize, setAudienceSize] = useState(0);
 
-    // Fetch customer data when the component is mounted
+
     useEffect(() => {
         const fetchCustomers = async () => {
             try {
@@ -20,11 +19,10 @@ const AudienceForm = () => {
         fetchCustomers();
     }, []);
 
-    // Apply conditions to filter customers
+  
     const applyConditions = () => {
         let filteredCustomers = customers;
 
-        // Loop through each condition and filter the customers
         conditions.forEach((condition) => {
             if (condition.field === 'spending') {
                 filteredCustomers = filteredCustomers.filter(
@@ -41,11 +39,10 @@ const AudienceForm = () => {
             }
         });
 
-        // Set the audience size
         setAudienceSize(filteredCustomers.length);
     };
 
-    // Handle adding a new condition
+    
     const addCondition = (field, value, operator) => {
         setConditions([...conditions, { field, value, operator }]);
     };
